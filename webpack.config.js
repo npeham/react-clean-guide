@@ -14,13 +14,14 @@ module.exports = {
   },
   devtool: "source-map",
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".ts", ".tsx"]
+    extensions: [".ts", ".tsx", ".js", ".json"]
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        loader: "ts-loader"
+        loader: "ts-loader",
+        exclude: /node_modules/
       },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
     ]
