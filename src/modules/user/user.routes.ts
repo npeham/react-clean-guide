@@ -1,11 +1,10 @@
-import { RouteProps } from 'react-router-dom';
 import { UserEditSene } from './scenes/UserEdit.scene';
 import { UserListScene } from './scenes/UserList.scene';
-import { AppRoute } from '../../App.router';
+import { AppRoute } from '../../shared/types/routing';
 
-enum UserRoute {
+export enum UserRoute {
   List = '/user/list',
-  Edit = '/user/edit/:userId',
+  Edit = '/user/edit/:userId/:projId',
 }
 
 export const userRoutes: AppRoute[] = [

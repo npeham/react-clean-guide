@@ -1,14 +1,22 @@
 import * as React from 'react';
-import { Switch, Route, RouteProps } from 'react-router';
+import { Switch, Route } from 'react-router';
 import { userRoutes } from './modules/user/user.routes';
+import { AppRoute } from './shared/types/routing';
+import { PrivateRoute } from './shared/components/PrivateRoute';
+import { postRoutes } from './modules/post/post.routes';
 
-export interface AppRoute extends RouteProps {
-  params?: string[];
-}
-
-const mapRoutes = (routeProps: RouteProps[]) =>
-  routeProps.map(routeProp => (
-    <Route path={routeProp.path} component={routeProp.component} />
-  ));
-
-export const AppRouter = () => <Switch>{mapRoutes(userRoutes)}</Switch>;
+const mapRoutes = (routeProps: AppRoute[]) =>
+  routeProps.map(({ isPrivate, ...rest }) => {
+    const key = rest.path.toString();
+    return isPrivate ? (
+      <PrivateRoute {...{ ...rest, key }} />
+    ) : (
+      <Route {...{ ...rest, key }} />
+    );
+  });
+export const AppRouter = () => (
+  <Switch>
+    {mapRoutes(userRoutes)}
+    {mapRoutes(postRoutes)}
+  </Switch>
+);
