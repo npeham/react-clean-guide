@@ -16,8 +16,16 @@ How to create and register a new scene in 3 steps:
 1. Create a new `UserEdit.scene.tsx` file in `modules/user/scenes`
 2. Define a interface for the scene params if there are any. It is important that you extend from the interface `SceneParams`.
 3. Define the actual component (what should be rendered). Here is the correctly created [file](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserEdit.scene.tsx).
-4. Proceed with creating a new entry in the `UserRoute` enum.
-5. Proceed with creating a `UserEditScene`interface in [`modules/user/user.routes.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserEdit.scene.tsx). Make sure to correctly extend from `IScene`. The first parameter of `IScene` is the path of the scene. So it looks like: 
+4. Open the file [`modules/user/user.routing.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/user.routes.ts) - you have to add/change 3 things here.
+4. At first create a new entry in the `UserRoute` enum.
+5. Second, add a new entry in the `userRoutes` array like:
+```
+   {
+    path: UserRoute.Edit,
+    component: UserEditSene,
+  },
+```
+6. Then create a `UserEditScene` interface with the correct scene params. Make sure to correctly extend from `IScene`. The first parameter of `IScene` is the path of the scene. So it looks like: 
 ```
 export interface UserEditScene extends IScene<UserRoute.Edit> {
   params: UserEditSceneParams;
@@ -29,5 +37,5 @@ export interface UserEditScene extends IScene<UserRoute.Edit> {
   params?: never;
 }
 ```
-6. Export your created `UserEditScene`interface along with the other scenes at the bottom of the file (`UserScenes`) and you are done.
-7. (optional) If you are creating the first scene in your module you also have to add the `UserScenes` to the `Scenes` type in the `types/routing.ts` file.
+7. Don't forget to export your created `UserEditScene`interface along with the other scenes at the bottom of the file (`UserScenes`).
+8. (optional) If you are creating the first scene in your module you also have to add the `UserScenes` to the `Scenes` type in the `types/routing.ts` file.
