@@ -12,7 +12,7 @@
 ### Create a scene
 **Note:** To simplify things I will use the already created `UserEdit` scene for the following instructions.
 
-How to create and register a new scene in 7 steps:
+How to create and register a new scene in 8 easy steps:
 1. Create a new `UserEdit.scene.tsx` file in `modules/user/scenes`
 2. Define a interface for the scene params if there are any. It is important that you extend from the interface `SceneParams`.
 3. Define the actual component (what should be rendered when navigating to this scene). To get TypeScript autocomplete support for your scene params don't forget to define your component like:
