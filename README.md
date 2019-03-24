@@ -32,13 +32,22 @@ How to create and register a new scene in 8 easy steps:
 Here is the correctly created [file](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserEdit.scene.tsx).
 
 4. Open the file [`modules/user/user.routing.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/user.routes.ts) - you have to add/change 4 things here.
-   * At first create a new entry in the `UserRoute` enum.
+   * At first create a new entry in the `UserRoute` enum:
+   ```
+   export enum UserRoute {
+      ...
+      Edit = '/user/edit/:userId/:projId',
+      ...
+   }
+   ```
    * Second, add a new entry in the `userRoutes` array like:
    ```
+      ...
       {
        path: UserRoute.Edit,
        component: UserEditSene,
-     },
+      },
+      ...
    ```
    * Then create a `UserEditScene` interface with the correct scene params. Make sure to correctly extend from `IScene`. The first parameter of `IScene` is the path of the scene. So it looks like: 
    ```
