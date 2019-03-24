@@ -1,21 +1,28 @@
 import { RouteProps } from 'react-router';
-import { UserRoute } from '../../modules/user/user.routes';
-import { UserEditSceneParams } from '../../modules/user/scenes/UserEdit.scene';
-import { PostRoute } from '../../modules/post/post.routes';
-import { PostDetailSceneParams } from '../../modules/post/scenes/PostDetail.scene';
+import { UserScenes } from '../../modules/user/user.routing';
+import { PostScenes } from '../../modules/post/post.routing';
 
 export interface AppRoute extends RouteProps {
   isPrivate?: boolean;
+  path: string;
 }
 
-interface UserEditScene {
-  path: UserRoute.Edit;
-  params: UserEditSceneParams;
+// export interface IScene<R extends Route, P extends Params> {
+//   path: R;
+//   params?: P;
+// }
+
+export interface IScene<R extends string> {
+  path: R;
+  params?: SceneParams;
 }
 
-interface PostDetailScene {
-  path: PostRoute.Detail;
-  params: PostDetailSceneParams;
+export interface SceneParams {
+  [key: string]: string;
 }
 
-export type Scene = UserEditScene | PostDetailScene;
+export type Scene = UserScenes | PostScenes;
+
+// export type Route = UserRoute | PostRoute;
+
+// export type Params = UserEditSceneParams | PostDetailSceneParams;

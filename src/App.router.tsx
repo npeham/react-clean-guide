@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Switch, Route } from 'react-router';
-import { userRoutes } from './modules/user/user.routes';
 import { AppRoute } from './shared/types/routing';
 import { PrivateRoute } from './shared/components/PrivateRoute';
-import { postRoutes } from './modules/post/post.routes';
+import { userRoutes } from './modules/user/user.routing';
+import { postRoutes } from './modules/post/post.routing';
 
 const mapRoutes = (routeProps: AppRoute[]) =>
   routeProps.map(({ isPrivate, ...rest }) => {
