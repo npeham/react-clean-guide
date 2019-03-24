@@ -7,11 +7,6 @@ export interface AppRoute extends RouteProps {
   path: string;
 }
 
-// export interface IScene<R extends Route, P extends Params> {
-//   path: R;
-//   params?: P;
-// }
-
 export interface IScene<R extends string> {
   path: R;
   params?: SceneParams;
@@ -22,7 +17,3 @@ export interface SceneParams {
 }
 
 export type Scene = UserScenes | PostScenes;
-
-// export type Route = UserRoute | PostRoute;
-
-// export type Params = UserEditSceneParams | PostDetailSceneParams;
