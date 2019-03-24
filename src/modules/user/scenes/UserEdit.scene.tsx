@@ -11,7 +11,8 @@ export const UserEditSene = (
   props: RouteComponentProps<UserEditSceneParams>,
 ) => (
   <div>
-    user edit --> userId: {props.match.params.userId} and{' '}
-    {props.match.params.projId}
+    <span>userId --> {props.match.params.userId}</span>
+    <br />
+    <span>projId --> {props.match.params.projId}</span>
   </div>
 );
