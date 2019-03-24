@@ -49,7 +49,7 @@ Here is the correctly created [file](https://github.com/npeham/react-typescript-
       },
       ...
    ```
-   * Then create a `UserEditScene` interface with the correct scene params. Make sure to correctly extend from `IScene`. The first parameter of `IScene` is the path of the scene. So it looks like: 
+   * Then create a `UserEditScene` interface with the correct scene params. Make sure to correctly extend from `IScene`. The first parameter of `IScene` is the path of the scene. It should look like this: 
    ```
    export interface UserEditScene extends IScene<UserRoute.Edit> {
      params: UserEditSceneParams;
