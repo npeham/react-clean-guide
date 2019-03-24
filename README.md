@@ -40,7 +40,7 @@ Here is the correctly created [file](https://github.com/npeham/react-typescript-
      params: UserEditSceneParams;
    }
    ```
-   **Important:** If a scene doesn't have any params (like the [`UserListScene`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserList.scene.tsx) you have to define the interface like this:
+   **Important:** If a scene doesn't have any params like the [`UserListScene`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserList.scene.tsx) you have to define the interface like this:
    ```
      export interface UserListScene extends IScene<UserRoute.List> {
      params?: never;
