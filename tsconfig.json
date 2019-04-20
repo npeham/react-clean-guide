@@ -9,7 +9,8 @@
     "removeComments": true,
     "sourceMap": true,
     "skipLibCheck": true,
-    "target": "es5"
+    "target": "es5",
+    "strictNullChecks": true
   },
   "include": ["./src/**/**/*"],
   "exclude": ["node_modules"]
