@@ -1,4 +1,4 @@
-import { Scene } from '../types/routing';
+import { Scene, SceneParams } from '../../types/routing';
 
 export enum RoutingError {
   DuplicatePath = 'DUPLICATE_PATH_ERROR',
@@ -44,6 +44,23 @@ export const verifyIfPathOfSceneIsUnique = (
 
   return path;
 };
+
+export function mergeParamsWithDefault<T extends SceneParams>(
+  params: T,
+  defaultParams: T,
+): T {
+  const paramKeys = Object.keys(params);
+
+  const undefinedParamKeys = paramKeys.filter(
+    (paramKey: string) => params[paramKey] === undefined,
+  );
+
+  const mergedParams = undefinedParamKeys.reduce((prev, undefinedParamKey) => {
+    return { ...prev, [undefinedParamKey]: defaultParams[undefinedParamKey] };
+  },                                             params);
+
+  return mergedParams;
+}
 
 // // CORRECT
 // getPathWithParams({

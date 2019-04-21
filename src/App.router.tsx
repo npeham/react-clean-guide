@@ -4,7 +4,7 @@ import { AppRoute } from './shared/types/routing';
 import { PrivateRoute } from './shared/components/PrivateRoute';
 import { userRoutes } from './modules/user/user.routing';
 import { postRoutes } from './modules/post/post.routing';
-import { verifyIfPathOfSceneIsUnique } from './shared/helper/routing.helper';
+import { verifyIfPathOfSceneIsUnique } from './shared/helper/routing/routing.helper';
 
 const existingPaths: string[] = [];
 

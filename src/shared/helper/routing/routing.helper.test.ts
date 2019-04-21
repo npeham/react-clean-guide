@@ -1,12 +1,16 @@
 import {
-  getPathWithParams,
+  UserEditScene,
+  UserEditSceneParams,
+} from '../../../modules/user/scenes/UserEdit.scene';
+import { UserRoute } from '../../../modules/user/user.routing';
+import { UserListScene } from '../../../modules/user/scenes/UserList.scene';
+import {
   getRoutePath,
+  getPathWithParams,
   verifyIfPathOfSceneIsUnique,
   RoutingError,
+  mergeParamsWithDefault,
 } from './routing.helper';
-import { UserRoute } from '../../modules/user/user.routing';
-import { UserEditScene } from '../../modules/user/scenes/UserEdit.scene';
-import { UserListScene } from '../../modules/user/scenes/UserList.scene';
 
 describe('routing helper tests', () => {
   const userEditScene: UserEditScene = {
@@ -54,6 +58,39 @@ describe('routing helper tests', () => {
       expect(verifyIfPathOfSceneIsUnique(userEditScene, existingPaths)).toBe(
         '/user/edit/:projId/:userId',
       );
+    });
+  });
+
+  describe('mergeParamsWithDefault', () => {
+    const defaultEditSceneParams: UserEditSceneParams = {
+      ...userEditScene.params,
+    };
+
+    it('returns merged params', () => {
+      const userEditSceneParams: UserEditSceneParams = {
+        projId: '5',
+        // @ts-ignore
+        userId: undefined,
+      };
+      const mergedParams: UserEditSceneParams = {
+        ...userEditSceneParams,
+        userId: defaultEditSceneParams.userId,
+      };
+
+      expect(
+        mergeParamsWithDefault(userEditSceneParams, defaultEditSceneParams),
+      ).toEqual(mergedParams);
+    });
+
+    it('returns the correct params when no one is undefined', () => {
+      const userEditSceneParams: UserEditSceneParams = {
+        projId: '5',
+        userId: '10',
+      };
+
+      expect(
+        mergeParamsWithDefault(userEditSceneParams, defaultEditSceneParams),
+      ).toEqual(userEditSceneParams);
     });
   });
 });
