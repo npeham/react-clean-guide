@@ -9,7 +9,6 @@ import {
   getPathWithParams,
   verifyIfPathOfSceneIsUnique,
   RoutingError,
-  mergeParamsWithDefault,
 } from './routing.helper';
 
 describe('routing helper tests', () => {
