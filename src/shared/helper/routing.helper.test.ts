@@ -4,11 +4,9 @@ import {
   verifyIfPathOfSceneIsUnique,
   RoutingError,
 } from './routing.helper';
-import {
-  UserEditScene,
-  UserRoute,
-  UserListScene,
-} from '../../modules/user/user.routing';
+import { UserRoute } from '../../modules/user/user.routing';
+import { UserEditScene } from '../../modules/user/scenes/UserEdit.scene';
+import { UserListScene } from '../../modules/user/scenes/UserList.scene';
 
 describe('routing helper tests', () => {
   const userEditScene: UserEditScene = {

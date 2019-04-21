@@ -1,12 +1,17 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { getPathWithParams } from '../../../shared/helper/routing.helper';
-import { SceneParams } from '../../../shared/types/routing';
+import { SceneParams, AppRoute, IScene } from '../../../shared/types/routing';
 import { UserRoute } from '../../user/user.routing';
+import { PostRoute } from '../post.routing';
 
 export interface PostDetailSceneParams extends SceneParams {
   postId: string;
 }
+
+const postDetailSceneDefaultParams: PostDetailSceneParams = {
+  postId: '',
+};
 
 export const PostDetailScene = (
   props: RouteComponentProps<PostDetailSceneParams>,
@@ -22,4 +27,16 @@ export const PostDetailScene = (
       </button>
     </React.Fragment>
   );
+};
+
+export interface PostDetailScene extends IScene<PostRoute.Detail> {
+  params: PostDetailSceneParams;
+}
+
+export const postDetailRoute: AppRoute = {
+  component: PostDetailScene,
+  scene: {
+    path: PostRoute.Detail,
+    params: postDetailSceneDefaultParams,
+  },
 };
