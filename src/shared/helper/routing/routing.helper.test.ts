@@ -60,37 +60,4 @@ describe('routing helper tests', () => {
       );
     });
   });
-
-  describe('mergeParamsWithDefault', () => {
-    const defaultEditSceneParams: UserEditSceneParams = {
-      ...userEditScene.params,
-    };
-
-    it('returns merged params', () => {
-      const userEditSceneParams: UserEditSceneParams = {
-        projId: '5',
-        // @ts-ignore
-        userId: undefined,
-      };
-      const mergedParams: UserEditSceneParams = {
-        ...userEditSceneParams,
-        userId: defaultEditSceneParams.userId,
-      };
-
-      expect(
-        mergeParamsWithDefault(userEditSceneParams, defaultEditSceneParams),
-      ).toEqual(mergedParams);
-    });
-
-    it('returns the correct params when no one is undefined', () => {
-      const userEditSceneParams: UserEditSceneParams = {
-        projId: '5',
-        userId: '10',
-      };
-
-      expect(
-        mergeParamsWithDefault(userEditSceneParams, defaultEditSceneParams),
-      ).toEqual(userEditSceneParams);
-    });
-  });
 });
