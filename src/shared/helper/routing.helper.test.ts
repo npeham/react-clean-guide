@@ -1,4 +1,9 @@
-import { getPathWithParams, getRoutePath } from './routing.helper';
+import {
+  getPathWithParams,
+  getRoutePath,
+  verifyIfPathOfSceneIsUnique,
+  RoutingError,
+} from './routing.helper';
 import {
   UserEditScene,
   UserRoute,
@@ -42,6 +47,34 @@ describe('routing helper tests', () => {
       };
 
       expect(getPathWithParams(userListScene)).toBe('/user/list');
+    });
+  });
+
+  describe('verifyIfPathOfSceneIsUnique function tests', () => {
+    it('throws an error because path is already existing', () => {
+      const existingPaths = ['/user/edit/:projId/:userId', '/user/list'];
+
+      const userEditScene: UserEditScene = {
+        path: UserRoute.Edit,
+        params: { projId: '', userId: '' },
+      };
+
+      const t = () => verifyIfPathOfSceneIsUnique(userEditScene, existingPaths);
+
+      expect(t).toThrowError(RoutingError.DuplicatePath);
+    });
+
+    it('returns the correct route path', () => {
+      const existingPaths = ['/user/list'];
+
+      const userEditScene: UserEditScene = {
+        path: UserRoute.Edit,
+        params: { projId: '', userId: '' },
+      };
+
+      expect(verifyIfPathOfSceneIsUnique(userEditScene, existingPaths)).toBe(
+        '/user/edit/:projId/:userId',
+      );
     });
   });
 });
