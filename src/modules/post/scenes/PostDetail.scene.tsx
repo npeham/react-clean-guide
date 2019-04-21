@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { getPathWithParams } from '../../../shared/helper/routing.helper';
 import { SceneParams, AppRoute, IScene } from '../../../shared/types/routing';
 import { UserRoute } from '../../user/user.routing';
 import { PostRoute } from '../post.routing';
+import { getPathWithParams } from '../../../shared/helper/routing/routing.helper';
 
 export interface PostDetailSceneParams extends SceneParams {
   postId: string;
