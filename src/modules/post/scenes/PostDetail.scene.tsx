@@ -16,13 +16,17 @@ const paramsSchema: PostDetailSceneParams = {
 export const PostDetailScene = (
   props: RouteComponentProps<PostDetailSceneParams>,
 ) => {
-  const userListScenePath = getPathWithParams({
-    path: UserRoute.List,
+  const userEditScenePath = getPathWithParams({
+    path: UserRoute.Edit,
+    params: {
+      projId: '3',
+      userId: '9',
+    },
   });
   return (
     <React.Fragment>
       <div>post detail --> postId: {props.match.params.postId}</div>
-      <button onClick={() => props.history.push(userListScenePath)}>
+      <button onClick={() => props.history.push(userEditScenePath)}>
         click
       </button>
     </React.Fragment>

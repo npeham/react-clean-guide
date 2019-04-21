@@ -13,9 +13,9 @@ const paramsSchema: UserEditSceneParams = {
   userId: '',
 };
 
-export const UserEditScene = (
-  props: RouteComponentProps<UserEditSceneParams>,
-) => {
+export const UserEditScene: React.SFC<
+  RouteComponentProps<UserEditSceneParams>
+> = props => {
   const { userId, projId } = props.match.params;
   return (
     <div>
