@@ -62,4 +62,6 @@ Here is the correctly created [file](https://github.com/npeham/react-typescript-
    }
    ```
    * Don't forget to export your created `UserEditScene`interface along with the other scenes at the bottom of the file (`UserScenes`).
-8. (optional) If you are creating the first scene in your module you also have to add the `UserScenes` to the `Scenes` type in the `types/routing.ts` file.
+8. (optional) If you are creating the first scene in your module you also have to do:
+- Add the `UserScenes` to the exported `Scenes` type in the `types/routing.ts` file.
+- Add the exported `userRoutes` from [`user.routing.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/user.routing.ts) to the `Switch` tag in the [`App.router.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/App.router.tsx) file.
