@@ -31,8 +31,8 @@ describe('routing helper tests', () => {
     });
   });
 
-  describe('tests for getPathWithParams function', () => {
-    it('should return the correct path with params set', () => {
+  describe('getPathWithParams', () => {
+    it('returns the correct path with params set', () => {
       const userEditScene: UserEditScene = {
         path: UserRoute.Edit,
         params: { projId: '3', userId: '8' },
@@ -41,7 +41,7 @@ describe('routing helper tests', () => {
       expect(getPathWithParams(userEditScene)).toBe('/user/edit/3/8');
     });
 
-    it('should return the correct path with no params set', () => {
+    it('returns the correct path with no params set', () => {
       const userListScene: UserListScene = {
         path: UserRoute.List,
       };
@@ -50,7 +50,7 @@ describe('routing helper tests', () => {
     });
   });
 
-  describe('verifyIfPathOfSceneIsUnique function tests', () => {
+  describe('verifyIfPathOfSceneIsUnique', () => {
     it('throws an error because path is already existing', () => {
       const existingPaths = ['/user/edit/:projId/:userId', '/user/list'];
 
