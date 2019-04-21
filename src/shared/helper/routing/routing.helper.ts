@@ -1,4 +1,4 @@
-import { Scene, SceneParams } from '../../types/routing';
+import { Scene } from '../../types/routing';
 
 export enum RoutingError {
   DuplicatePath = 'DUPLICATE_PATH_ERROR',
