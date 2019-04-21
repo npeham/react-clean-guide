@@ -15,13 +15,16 @@ export const userEditSceneDefaultParams: UserEditSceneParams = {
 
 export const UserEditScene = (
   props: RouteComponentProps<UserEditSceneParams>,
-) => (
-  <div>
-    <span>userId --> {props.match.params.userId}</span>
-    <br />
-    <span>projId --> {props.match.params.projId}</span>
-  </div>
-);
+) => {
+  const { userId, projId } = props.match.params;
+  return (
+    <div>
+      <span>userId --> {userId}</span>
+      <br />
+      <span>projId --> {projId}</span>
+    </div>
+  );
+};
 
 export interface UserEditScene extends IScene<UserRoute.Edit> {
   params: UserEditSceneParams;
