@@ -1,7 +1,7 @@
-import { Scene, SceneParams } from "../../types/routing";
+import { Scene, SceneParams } from '../../types/routing';
 
 export enum RoutingError {
-  DuplicatePath = "DUPLICATE_PATH_ERROR"
+  DuplicatePath = 'DUPLICATE_PATH_ERROR',
 }
 
 export const getRoutePath = (scene: Scene): string => {
@@ -13,7 +13,7 @@ export const getRoutePath = (scene: Scene): string => {
 
   return routeParamKeys.reduce((previous: string, paramKey: string) => {
     return `${previous}/:${paramKey}`;
-  }, scene.path);
+  },                           scene.path);
 };
 
 export function getPathWithParams(scene: Scene): string {
@@ -33,7 +33,7 @@ export function getPathWithParams(scene: Scene): string {
 
 export const verifyIfPathOfSceneIsUnique = (
   scene: Scene,
-  existingPaths: string[]
+  existingPaths: string[],
 ): string => {
   const path = getRoutePath(scene);
   const isPathUnique = !existingPaths.includes(path);
