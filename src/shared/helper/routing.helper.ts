@@ -15,7 +15,7 @@ export function getPathWithParams(scene: Scene): string {
   return pathWithParams;
 }
 
-// CORRECT
+// // CORRECT
 // getPathWithParams({
 //   path: PostRoute.Detail,
 //   params: { postId: '4' },
