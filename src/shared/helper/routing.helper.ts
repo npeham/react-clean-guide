@@ -1,5 +1,9 @@
 import { Scene } from '../types/routing';
 
+export const getRoutePath = (scene: Scene): string => {
+  return '';
+};
+
 export function getPathWithParams(scene: Scene): string {
   if (!scene.params) {
     return scene.path;
