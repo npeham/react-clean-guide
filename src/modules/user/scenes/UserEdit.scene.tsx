@@ -8,7 +8,7 @@ export interface UserEditSceneParams extends SceneParams {
   projId: string;
 }
 
-export const userEditSceneDefaultParams: UserEditSceneParams = {
+const paramsSchema: UserEditSceneParams = {
   projId: '',
   userId: '',
 };
@@ -33,7 +33,7 @@ export interface UserEditScene extends IScene<UserRoute.Edit> {
 export const userEditRoute: AppRoute = {
   scene: {
     path: UserRoute.Edit,
-    params: userEditSceneDefaultParams,
+    params: paramsSchema,
   },
   component: UserEditScene,
 };

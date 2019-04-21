@@ -9,7 +9,7 @@ export interface PostDetailSceneParams extends SceneParams {
   postId: string;
 }
 
-const postDetailSceneDefaultParams: PostDetailSceneParams = {
+const paramsSchema: PostDetailSceneParams = {
   postId: '',
 };
 
@@ -37,6 +37,6 @@ export const postDetailRoute: AppRoute = {
   component: PostDetailScene,
   scene: {
     path: PostRoute.Detail,
-    params: postDetailSceneDefaultParams,
+    params: paramsSchema,
   },
 };

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { IScene, AppRoute } from '../../../shared/types/routing';
 import { UserRoute } from '../user.routing';
+import { RouteComponentProps } from 'react-router';
 
-export const UserListScene = () => {
+export const UserListScene: React.SFC<RouteComponentProps> = props => {
   return <div>user list</div>;
 };
 

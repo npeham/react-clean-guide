@@ -1,7 +1,4 @@
-import {
-  UserEditScene,
-  UserEditSceneParams,
-} from '../../../modules/user/scenes/UserEdit.scene';
+import { UserEditScene } from '../../../modules/user/scenes/UserEdit.scene';
 import { UserRoute } from '../../../modules/user/user.routing';
 import { UserListScene } from '../../../modules/user/scenes/UserList.scene';
 import {
@@ -22,12 +19,12 @@ describe('routing helper tests', () => {
   };
 
   describe('getRoutePath', () => {
-    it('should return the correct route path computed from path and defaultParams of scene', () => {
+    it('should return the correct route path computed from path and paramsSchema of scene', () => {
       expect(getRoutePath(userEditScene)).toBe('/user/edit/:projId/:userId');
     });
 
     // tslint:disable-next-line:max-line-length
-    it('should return the correct route path computed from path and defaultParams of scene with no params', () => {
+    it('should return the correct route path computed from path and paramsSchema of scene with no params', () => {
       expect(getRoutePath(userListScene)).toBe('/user/list');
     });
   });
