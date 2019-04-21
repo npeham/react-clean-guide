@@ -13,7 +13,16 @@ describe('routing helper tests', () => {
         params: { projId: '', userId: '' },
       };
 
-      expect(getRoutePath(userEditScene)).toBe('/user/edit/:path/:params');
+      expect(getRoutePath(userEditScene)).toBe('/user/edit/:projId/:userId');
+    });
+
+    // tslint:disable-next-line:max-line-length
+    it('should return the correct route path computed from path and defaultParams of scene with no params', () => {
+      const userListScene: UserListScene = {
+        path: UserRoute.List,
+      };
+
+      expect(getRoutePath(userListScene)).toBe('/user/list');
     });
   });
 
@@ -24,7 +33,7 @@ describe('routing helper tests', () => {
         params: { projId: '3', userId: '8' },
       };
 
-      expect(getPathWithParams(userEditScene)).toBe('/user/edit/8/3');
+      expect(getPathWithParams(userEditScene)).toBe('/user/edit/3/8');
     });
 
     it('should return the correct path with no params set', () => {

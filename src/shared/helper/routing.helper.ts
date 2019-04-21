@@ -1,7 +1,15 @@
 import { Scene } from '../types/routing';
 
 export const getRoutePath = (scene: Scene): string => {
-  return '';
+  if (!scene.params) {
+    return scene.path;
+  }
+
+  const routeParamKeys = Object.keys(scene.params);
+
+  return routeParamKeys.reduce((previous: string, paramKey: string) => {
+    return `${previous}/:${paramKey}`;
+  },                           scene.path);
 };
 
 export function getPathWithParams(scene: Scene): string {
@@ -9,7 +17,7 @@ export function getPathWithParams(scene: Scene): string {
     return scene.path;
   }
 
-  let pathWithParams: string = scene.path;
+  let pathWithParams: string = getRoutePath(scene);
   const paramsAsString = Object.keys(scene.params);
 
   paramsAsString.forEach((param: string) => {

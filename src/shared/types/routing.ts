@@ -4,7 +4,7 @@ import { PostScenes } from '../../modules/post/post.routing';
 
 export interface AppRoute extends RouteProps {
   isPrivate?: boolean;
-  path: string;
+  scene: Scene;
 }
 
 export interface IScene<R extends string> {

@@ -5,7 +5,7 @@ import {
 } from './scenes/PostDetail.scene';
 
 export enum PostRoute {
-  Detail = '/post/:postId',
+  Detail = '/post',
 }
 
 interface PostDetailScene extends IScene<PostRoute.Detail> {
@@ -14,8 +14,11 @@ interface PostDetailScene extends IScene<PostRoute.Detail> {
 
 export const postRoutes: AppRoute[] = [
   {
-    path: PostRoute.Detail,
     component: PostDetailScene,
+    scene: {
+      path: PostRoute.Detail,
+      params: { postId: '' },
+    },
   },
 ];
 

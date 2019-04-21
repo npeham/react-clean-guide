@@ -7,6 +7,11 @@ export interface UserEditSceneParams extends SceneParams {
   projId: string;
 }
 
+export const userEditSceneDefaultParams: UserEditSceneParams = {
+  projId: '',
+  userId: '',
+};
+
 export const UserEditSene = (
   props: RouteComponentProps<UserEditSceneParams>,
 ) => (
