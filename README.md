@@ -55,7 +55,9 @@ export const userEditRoute: AppRoute = {
   component: UserEditScene,
 };
 ```
-Hint: The parameter of `IScene` is the path of the scene (Route enum).
+**Important:** The `UserRoute.Edit` will not exist at this time. You will define it in step 6.
+
+**Hint:** The parameter of `IScene` is the path of the scene (Route enum).
 
 **Important:** If a scene doesn't have any params like the [`UserListScene`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserList.scene.tsx) you have to define the interface like this:
    ```
@@ -63,7 +65,7 @@ Hint: The parameter of `IScene` is the path of the scene (Route enum).
      params?: never;
    }
    ```
-Also you doesn't need to create a `paramsSchema` object. 
+Also you don't need to create a `paramsSchema` object.
 
 Here is the correctly created [file](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserEdit.scene.tsx).
 
