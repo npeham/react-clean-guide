@@ -16,10 +16,10 @@ How to type-safe create and register a new scene in 6 easy steps:
 1. Create a new `UserEdit.scene.tsx` file in `modules/user/scenes`
 2. Define a interface for the scene params if there are any and export it. It is important that you extend from the interface `SceneParams`. Here is the actual code:
 ```
-   export interface UserEditSceneParams extends SceneParams {
-      userId: string;
-      projId: string;
-   }
+export interface UserEditSceneParams extends SceneParams {
+   userId: string;
+   projId: string;
+}
 ```
 3. Now define and export `paramsSchema` with the type `UserEditSceneParams`:
 ```
