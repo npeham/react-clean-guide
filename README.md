@@ -32,14 +32,13 @@ Honestly this only exist to avoid defining the path of a route with params like:
 
 4. Define the actual component (what should be rendered when navigating to this scene). To get TypeScript autocomplete support for your scene params don't forget to create your component like:
 ```
-   export const UserEditScene: React.SFC<
-  RouteComponentProps<UserEditSceneParams>
-> = props => {
-  const { userId, projId } = props.match.params;
-  return (
-    ...
-  );
-};
+export const UserEditScene: React.SFC<
+   RouteComponentProps<UserEditSceneParams>> = props => {
+      const { userId, projId } = props.match.params;
+      return (
+         ...
+      );
+   };
 ```
 
 5. At the bottom you have to create a `UserEditScene` interface with the correct scene params and then an `AppRoute` object called `userEditRoute`. Both have to be exported. It should look like this:
