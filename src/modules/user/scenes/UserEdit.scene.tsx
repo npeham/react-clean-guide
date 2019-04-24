@@ -7,12 +7,15 @@ export interface UserEditSceneParams extends SceneParams {
   projId: string;
 }
 
-export const UserEditSene = (
-  props: RouteComponentProps<UserEditSceneParams>,
-) => (
-  <div>
-    <span>userId --> {props.match.params.userId}</span>
-    <br />
-    <span>projId --> {props.match.params.projId}</span>
-  </div>
-);
+export const UserEditSene: React.SFC<
+  RouteComponentProps<UserEditSceneParams>
+> = props => {
+  const { userId, projId } = props.match.params;
+  return (
+    <div>
+      <span>userId --> {userId}</span>
+      <br />
+      <span>projId --> {projId}</span>
+    </div>
+  );
+};

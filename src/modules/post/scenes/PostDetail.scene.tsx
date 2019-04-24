@@ -8,15 +8,16 @@ export interface PostDetailSceneParams extends SceneParams {
   postId: string;
 }
 
-export const PostDetailScene = (
-  props: RouteComponentProps<PostDetailSceneParams>,
-) => {
+export const PostDetailScene: React.SFC<
+  RouteComponentProps<PostDetailSceneParams>
+> = props => {
   const userListScenePath = getPathWithParams({
     path: UserRoute.List,
   });
+  const { postId } = props.match.params;
   return (
     <React.Fragment>
-      <div>post detail --> postId: {props.match.params.postId}</div>
+      <div>post detail --> postId: {postId}</div>
       <button onClick={() => props.history.push(userListScenePath)}>
         click
       </button>
