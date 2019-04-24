@@ -12,7 +12,7 @@
 ### Create a scene
 **Note:** To simplify things I will use the already created `UserEdit` scene for the following instructions.
 
-How to create and register a new scene in 8 easy steps:
+How to type-safe create and register a new scene in 4 easy steps:
 1. Create a new `UserEdit.scene.tsx` file in `modules/user/scenes`
 2. Define a interface for the scene params if there are any and export it. It is important that you extend from the interface `SceneParams`. Here is the actual code:
 ```
@@ -23,12 +23,17 @@ How to create and register a new scene in 8 easy steps:
 ```
 3. Define the actual component (what should be rendered when navigating to this scene). To get TypeScript autocomplete support for your scene params don't forget to create your component like:
 ```
-   export const UserEditSene = (
-      props: RouteComponentProps<UserEditSceneParams>,
-   ) => (
-      ...
-   )
+   export const UserEditSene: React.SFC<
+  RouteComponentProps<UserEditSceneParams>
+> = props => {
+  const { userId, projId } = props.match.params;
+  return (
+    
+  );
+};
 ```
+**Important:** If your scene has no params you just write `React.SFC<RouteComponentProps>` like how it was done in the [`User.scene.tsx`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserList.scene.tsx).
+
 Here is the correctly created [file](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/scenes/UserEdit.scene.tsx).
 
 4. Open the file [`modules/user/user.routing.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/modules/user/user.routes.ts) - you have to add/change 4 things here.
@@ -62,6 +67,6 @@ Here is the correctly created [file](https://github.com/npeham/react-typescript-
    }
    ```
    * Don't forget to export your created `UserEditScene`interface along with the other scenes at the bottom of the file (`UserScenes`).
-8. (optional) If you are creating the first scene in your module you also have to do:
+5. (optional) If you are creating the first scene in your module you also have to do:
 - Add the `UserScenes` to the exported `Scenes` type in the [`types/routing.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/shared/types/routing.ts) file.
 - Add `mapRoutes(userRoutes)` to the `Switch` tag in the [`App.router.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/App.router.tsx) file.
