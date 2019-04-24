@@ -1,4 +1,5 @@
 import { Scene } from '../types/routing';
+import { ErrorCode } from '../ErrorCode.enum';
 
 export function getPathWithParams(scene: Scene): string {
   if (!scene.params) {
@@ -14,6 +15,19 @@ export function getPathWithParams(scene: Scene): string {
 
   return pathWithParams;
 }
+
+export const verifyIfPathIsUnique = (
+  path: string,
+  existingPaths: string[],
+): string => {
+  const isPathUnique = !existingPaths.includes(path);
+
+  if (!isPathUnique) {
+    throw Error(ErrorCode.RoutingDuplicatePath);
+  }
+
+  return path;
+};
 
 // CORRECT
 // getPathWithParams({
