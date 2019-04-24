@@ -81,10 +81,11 @@ const userEditScenePath = getPathWithParams({
     userId: '8',
   },
 });
+const navigateToUserListScene = () => props.history.push(userListScenePath);
 ```
 The result is a valid path where you can route to with `react-router`:
 ```
-<button onClick={() => props.history.push(userEditScenePath)}>
+<button onClick={navigateToUserListScene}>
    click
 </button>
 ```
