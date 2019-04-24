@@ -70,3 +70,22 @@ Here is the correctly created [file](https://github.com/npeham/react-typescript-
 5. (optional) If you are creating the first scene in your module you also have to do:
 - Add the `UserScenes` to the exported `Scenes` type in the [`types/routing.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/shared/types/routing.ts) file.
 - Add `mapRoutes(userRoutes)` to the `Switch` tag in the [`App.router.ts`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/App.router.tsx) file.
+
+### Navigate to a scene
+If you want to navigate to a scene you have to call the [`getPathWithParams`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/shared/helper/routing/routing.helper.ts#L19) function:
+```
+const userEditScenePath = getPathWithParams({
+  path: UserRoute.Edit,
+  params: {
+    projId: '3',
+    userId: '8',
+  },
+});
+```
+The result is a valid path where you can route to with `react-router`:
+```
+<button onClick={() => props.history.push(userEditScenePath)}>
+   click
+</button>
+```
+**Notice:** Thank to our type-safe setup TypeScript will know the params of the scene based on the path (Route enum) you passed to [`getPathWithParams`](https://github.com/npeham/react-typescript-starter/blob/react-router/src/shared/helper/routing/routing.helper.ts#L19) function. So you will get nice autocompletion and you cannot pass the wrong params.
