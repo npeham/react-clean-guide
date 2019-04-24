@@ -1,5 +1,5 @@
 {
-  "extends": "tslint-config-airbnb",
+  "extends": ["tslint-config-airbnb", "tslint-react", "tslint-config-prettier"],
   "rules": {
     "variable-name": [true, "allow-pascal-case"]
   }
