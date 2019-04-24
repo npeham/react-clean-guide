@@ -9,7 +9,20 @@
     "build:dev": "./node_modules/.bin/webpack",
     "start": "npm run build:dev && node server.js",
     "test": "yarn jest",
-    "prettier": "prettier --write src/**/*.{ts,tsx}"
+    "prettier": "prettier --write src/**/*.{ts,tsx}",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.(ts|tsx)": [
+      "yarn lint",
+      "yarn prettier",
+      "git add"
+    ]
   },
   "dependencies": {
     "react": "^16.4.2",
@@ -30,7 +43,9 @@
     "enzyme-to-json": "^3.3.5",
     "express": "^4.16.4",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.0.0",
     "jest": "^24.1.0",
+    "lint-staged": "^8.1.5",
     "prettier": "^1.17.0",
     "react-test-renderer": "^16.8.3",
     "source-map-loader": "^0.2.4",
