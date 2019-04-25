@@ -4,6 +4,20 @@
 * [enzyme](https://airbnb.io/enzyme/)
 * [react-router](https://github.com/ReactTraining/react-router)
 
+## Dev Dependencies
+* [prettier](https://github.com/prettier/prettier)
+* [tslint](https://github.com/palantir/tslint)
+* [husky](https://github.com/typicode/husky)
+* [lint-staged](https://github.com/okonet/lint-staged)
+
+## Tslint and code format
+Along the dev dependencies, the setup also contains these tslint dependencies:
+* [tslint-config-airbnb](https://github.com/progre/tslint-config-airbnb)
+* [tslint-config-prettier](https://github.com/prettier/tslint-config-prettier)
+* [tslint-react](https://github.com/palantir/tslint-react)
+
+Thanks to the husky, prettier and lint-staged setup your code gets formated automatically on every commit.
+
 ## Enzyme
 [Enzyme](https://airbnb.io/enzyme/) was set up with [Using Jest with TypeScript](https://basarat.gitbooks.io/typescript/docs/testing/jest.html) (describes how to setup both jest and enzyme).
 
