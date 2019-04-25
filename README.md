@@ -4,6 +4,7 @@
 * [react](https://github.com/facebook/react)
 * [react-router](https://github.com/ReactTraining/react-router)
 * [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
+* [redux](https://github.com/reduxjs/redux)
 
 ## DevDependencies
 * [prettier](https://github.com/prettier/prettier)
