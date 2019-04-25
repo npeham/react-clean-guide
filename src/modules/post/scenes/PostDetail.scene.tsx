@@ -15,12 +15,12 @@ export const PostDetailScene: React.SFC<
     path: UserRoute.List,
   });
   const { postId } = props.match.params;
+  const navigateToUserListScene = () => props.history.push(userListScenePath);
+
   return (
     <React.Fragment>
       <div>post detail --> postId: {postId}</div>
-      <button onClick={() => props.history.push(userListScenePath)}>
-        click
-      </button>
+      <button onClick={navigateToUserListScene}>click</button>
     </React.Fragment>
   );
 };
