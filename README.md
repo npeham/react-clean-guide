@@ -4,7 +4,7 @@
 * [enzyme](https://airbnb.io/enzyme/)
 * [react-router](https://github.com/ReactTraining/react-router)
 
-## Dev Dependencies
+## DevDependencies
 * [prettier](https://github.com/prettier/prettier)
 * [tslint](https://github.com/palantir/tslint)
 * [husky](https://github.com/typicode/husky)
