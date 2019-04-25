@@ -1,14 +1,18 @@
 # React Typescript Starter
 
 ## Dependencies
-* [enzyme](https://airbnb.io/enzyme/)
+* [react](https://github.com/facebook/react)
 * [react-router](https://github.com/ReactTraining/react-router)
+* [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)
 
 ## DevDependencies
 * [prettier](https://github.com/prettier/prettier)
 * [tslint](https://github.com/palantir/tslint)
 * [husky](https://github.com/typicode/husky)
 * [lint-staged](https://github.com/okonet/lint-staged)
+* [enzyme](https://airbnb.io/enzyme/)
+* [typescript](https://github.com/Microsoft/TypeScript)
+* [webpack](https://github.com/webpack/webpack)
 
 ## Tslint and code format
 Along the dev dependencies, the setup also contains these tslint dependencies:
