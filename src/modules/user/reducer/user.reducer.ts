@@ -18,7 +18,7 @@ export const userReducer: Reducer<UserState, UserActions> = (
 ) => {
   switch (action.type) {
     case ActionTypeKeys.CreateUser:
-      return { ...state, userStatus: action.payload };
+      return { ...state, user: action.payload };
     default:
       return state;
   }
