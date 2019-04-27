@@ -1,6 +1,9 @@
-import { UserEditSene, UserEditSceneParams } from './scenes/UserEdit.scene';
 import { UserListScene } from './scenes/UserList.scene';
 import { AppRoute, IScene } from '../../shared/types/routing';
+import {
+  UserEditSene,
+  UserEditSceneParams,
+} from './scenes/userEdit/UserEdit.scene';
 
 export enum UserRoute {
   List = '/user/list',
