@@ -8,7 +8,7 @@ export interface ConnectedReduxProps {
 }
 
 export interface ApplicationState {
-  authenticationState: UserState;
+  userState: UserState;
 }
 
 export const store = createStore(rootReducer);
