@@ -1,4 +1,4 @@
-import { Action } from 'redux';
+import { createAction } from 'deox';
 
 export type User = {
   firstName: string;
@@ -9,15 +9,7 @@ enum ActionTypeKeys {
   CreateUser = 'USER::CREATE',
 }
 
-interface CreateUserAction extends Action<ActionTypeKeys.CreateUser> {
-  payload: User;
-}
-
-export const createUser = (user: User): CreateUserAction => ({
-  type: ActionTypeKeys.CreateUser,
-  payload: user,
-});
-
-export { ActionTypeKeys };
-
-export type UserActions = CreateUserAction;
+export const createUser = createAction(
+  'USER::CREATE',
+  resolve => (user: User) => resolve(user),
+);

@@ -1,5 +1,5 @@
-import { Reducer } from 'redux';
-import { UserActions, ActionTypeKeys, User } from '../user.actions';
+import { User, createUser } from '../user.actions';
+import { createReducer } from 'deox';
 
 export interface UserState {
   user: User;
@@ -12,14 +12,6 @@ const userDefaultState: UserState = {
   },
 };
 
-export const userReducer: Reducer<UserState, UserActions> = (
-  state = userDefaultState,
-  action,
-) => {
-  switch (action.type) {
-    case ActionTypeKeys.CreateUser:
-      return { ...state, user: action.payload };
-    default:
-      return state;
-  }
-};
+export const userReducer = createReducer(userDefaultState, handle => [
+  handle(createUser, (state, action) => ({ ...state, user: action.payload })),
+]);
