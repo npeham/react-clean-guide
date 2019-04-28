@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { SceneParams } from '../../../shared/types/routing';
+import { SceneParams } from '../../../../shared/types/routing';
+import { UserEditFormContainer } from './userEditForm/UserEditForm.container';
 
 export interface UserEditSceneParams extends SceneParams {
   userId: string;
@@ -16,6 +17,9 @@ export const UserEditSene: React.SFC<
       <span>userId --> {userId}</span>
       <br />
       <span>projId --> {projId}</span>
+      <br />
+      <br />
+      <UserEditFormContainer passedProp="myPassedProp" />
     </div>
   );
 };
