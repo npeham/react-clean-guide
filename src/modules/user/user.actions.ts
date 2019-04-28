@@ -10,6 +10,6 @@ enum ActionTypeKeys {
 }
 
 export const createUser = createAction(
-  ActionTypeKeys.CreateUser,
+  'USER::CREATE',
   resolve => (user: User) => resolve(user),
 );
