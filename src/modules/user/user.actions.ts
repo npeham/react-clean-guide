@@ -1,4 +1,4 @@
-import { createAction } from 'deox';
+import { createAction, Action } from 'deox';
 
 export type User = {
   firstName: string;
@@ -17,6 +17,12 @@ export const createUser = createAction(
   ActionTypeKeys.CreateUser,
   resolve => (user: User) => resolve(user),
 );
+
+export type CreateUserRequestedAction = Action<
+  ActionTypeKeys.CreateUserRequested
+> & {
+  payload: User;
+};
 
 export const createUserRequested = createAction(
   ActionTypeKeys.CreateUserRequested,
