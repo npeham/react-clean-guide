@@ -1,4 +1,4 @@
-# React Typescript Starter
+# React Clean Guide
 
 ## Dependencies
 * [react](https://github.com/facebook/react)
