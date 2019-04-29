@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build:dev": "./node_modules/.bin/webpack",
-    "start": "npm run build:dev && node server.js",
+    "start": "yarn run build:dev && node server.js",
     "test": "yarn jest",
     "prettier": "prettier --write src/**/*.{ts,tsx}",
     "lint": "tslint -p tsconfig.json"
