@@ -5459,6 +5459,11 @@ redux-immutable-state-invariant@^2.1.0:
     invariant "^2.1.0"
     json-stringify-safe "^5.0.1"
 
+redux-react-hook@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/redux-react-hook/-/redux-react-hook-3.3.1.tgz#3fc91c0def8a49b873c92879843b3f76c8ae7cf4"
+  integrity sha512-a5RHGYT2ZV8Zo1ATP2ubxQGm0fPwn62loSieTeCL7PRgGfdTi8jR0S1K+1/1b4P6RSnEXvs5qC9IVlh2clPbxg==
+
 redux-saga@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.0.2.tgz#0599703f975438f1b2f9d2b9a965ec58f0fdfcd7"

@@ -1,4 +1,4 @@
-import { User, createUser } from '../user.actions';
+import { User, createUser, createUserSucceeded } from '../user.actions';
 import { createReducer } from 'deox';
 
 export interface UserState {
@@ -13,7 +13,7 @@ const userDefaultState: UserState = {
 };
 
 export const userReducer = createReducer(userDefaultState, handle => [
-  handle(createUser, (state, action) => {
+  handle(createUserSucceeded, (state, action) => {
     return { ...state, user: action.payload };
   }),
 ]);

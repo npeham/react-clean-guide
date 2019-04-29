@@ -1,45 +1,52 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
+// tslint:disable-next-line:import-name
+import React, { useCallback } from 'react';
 
-import {
-  ConnectedReduxProps,
-  ApplicationState,
-} from '../../../../../configureStore';
+import { ApplicationState } from '../../../../../configureStore';
 import { UserEditForm } from './UserEditForm';
-import { User, createUser, createUserRequested } from '../../../user.actions';
+import {
+  User,
+  createUser,
+  createUserRequested,
+  createUserSucceeded,
+} from '../../../user.actions';
+// tslint:disable-next-line:import-name
+// import React, { useCallback } from 'react';
+import { useMappedState, useDispatch } from 'redux-react-hook';
+
+// const { useCallback } = React;
 
 type UserEditFormContainerStateMapProps = {
   user: User;
 };
 
-const mapStateToProps = (
-  state: ApplicationState,
-): UserEditFormContainerStateMapProps => {
-  return {
-    user: state.userState.user,
-  };
+type RegisterFormContainerProps = {
+  passedProp: string;
 };
 
-type RegisterFormContainerProps = ConnectedReduxProps &
-  UserEditFormContainerStateMapProps & {
-    passedProp: string;
+export const UserEditFormContainer: React.FunctionComponent<
+  RegisterFormContainerProps
+> = ({ passedProp }) => {
+  const mapState = useCallback(
+    (state: ApplicationState): UserEditFormContainerStateMapProps => ({
+      user: state.userState.user,
+    }),
+    [],
+  );
+  const dispatch = useDispatch();
+
+  const { user } = useMappedState(mapState);
+
+  const handleRegisterFormSubmit = (values: User) => {
+    dispatch(createUserRequested(user));
   };
 
-export const UserEditFormContainer = connect(mapStateToProps)(
-  ({ dispatch, user, passedProp }: RegisterFormContainerProps) => {
-    const handleRegisterFormSubmit = (values: User) => {
-      // access to values
-      dispatch(createUserRequested(values));
-    };
-
-    return (
-      <>
-        <div>passed: {passedProp}</div>
-        <div>user in state: {JSON.stringify(user)}</div>
-        <br />
-        <br />
-        <UserEditForm onSubmit={handleRegisterFormSubmit} />{' '}
-      </>
-    );
-  },
-);
+  return (
+    <>
+      <div>passed: {passedProp}</div>
+      <div>user in state: {JSON.stringify(user)}</div>
+      <br />
+      <br />
+      <UserEditForm onSubmit={handleRegisterFormSubmit} />{' '}
+    </>
+  );
+};
