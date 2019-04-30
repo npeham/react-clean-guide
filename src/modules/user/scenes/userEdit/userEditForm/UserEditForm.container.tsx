@@ -6,7 +6,7 @@ import {
   ApplicationState,
 } from '../../../../../configureStore';
 import { UserEditForm } from './UserEditForm';
-import { User, createUser } from '../../../user.actions';
+import { User, createUser, createUserRequested } from '../../../user.actions';
 
 type UserEditFormContainerStateMapProps = {
   user: User;
@@ -29,7 +29,7 @@ export const UserEditFormContainer = connect(mapStateToProps)(
   ({ dispatch, user, passedProp }: RegisterFormContainerProps) => {
     const handleRegisterFormSubmit = (values: User) => {
       // access to values
-      dispatch(createUser(values));
+      dispatch(createUserRequested(values));
     };
 
     return (

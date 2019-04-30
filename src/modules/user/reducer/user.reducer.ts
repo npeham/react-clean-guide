@@ -13,5 +13,7 @@ const userDefaultState: UserState = {
 };
 
 export const userReducer = createReducer(userDefaultState, handle => [
-  handle(createUser, (state, action) => ({ ...state, user: action.payload })),
+  handle(createUser, (state, action) => {
+    return { ...state, user: action.payload };
+  }),
 ]);
