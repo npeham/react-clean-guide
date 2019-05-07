@@ -4,11 +4,12 @@ import {
   createUserFailed,
   createUserSucceeded,
   User,
-  CreateUserRequestedAction,
+  createUserRequested,
 } from '../user.actions';
 import { userEditRequest } from '../user.api';
+import { ActionType } from 'deox';
 
-export function* userEditSaga(action: CreateUserRequestedAction) {
+export function* userEditSaga(action: ActionType<typeof createUserRequested>) {
   try {
     // define type explicitly because of lack of return types of generators:
     // https://github.com/redux-saga/redux-saga/issues/1286#issuecomment-482866473
