@@ -18,12 +18,6 @@ export const createUser = createAction(
   resolve => (user: User) => resolve(user),
 );
 
-export type CreateUserRequestedAction = Action<
-  ActionTypeKeys.CreateUserRequested
-> & {
-  payload: User;
-};
-
 export const createUserRequested = createAction(
   ActionTypeKeys.CreateUserRequested,
   resolve => (user: User) => resolve(user),
